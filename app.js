@@ -2,10 +2,10 @@
 
 // Imports
 import express from 'express';
-import mongoose from 'mongoose';
 import connectDB from './config/db.js';
 import dotenv from 'dotenv';
 import path from 'path';
+import indexRouter from './routes/index.js';
 
 // __dirname in ESM
 import { fileURLToPath } from 'url';
@@ -34,9 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // --- ROUTES ---
-app.get('/', (req, res) => {
-    res.render('index')
-});
+app.use('/', indexRouter);
 
 
 // --- SERVER CONNECTION ---
