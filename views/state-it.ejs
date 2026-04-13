@@ -2,6 +2,20 @@
 
     <%- include('partials/navbar') %>
 
+        <% if (typeof state !== 'undefined' && state === 'success') { %>
+
+        <main>
+            <section class="success-section">
+            <h1>your take has been published.</h1>
+            <p>Save this code — you need it to edit or delete your article:</p>
+            <p class="edit-code"><%= editCode %></p>
+            <a href="/takes/<%= article.slug %>">View your article</a>
+            </section>
+        </main>
+
+
+        <% } else { %>
+
         <main>
             <!-- STATE IT SECTION -->
             <section class="publish-section">
@@ -86,4 +100,7 @@
 
         </main>
 
+        <% } %>
+
+        
         <%- include('partials/footer') %>

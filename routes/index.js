@@ -5,7 +5,7 @@ const router = express.Router();
 
 // --- ROUTES ---
 
-// .get
+// GET Home
 router.get('/', (req, res) =>{
     res.render('index');
 });

@@ -1,0 +1,29 @@
+<%- include('partials/head') %>
+
+<%- include('partials/navbar-article') %>
+
+<main>
+    <section class="article">
+        <header class="article-header">
+            <div class="article-image"></div>
+            <h1 class="article-title"><%= article.title %></h1>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="article-info">
+                <span class="subtitle"><%= article.authorName %></span>
+                <span class="subtitle"><%= article.publishedAt.toDateString() %></span>
+            </div>
+
+            <p class="article-text"><%- article.body %></p>
+        </div>
+
+        <% if (article.socials) { %>
+            <div class="author-socials">
+                <span><%= article.socials %></span>
+        </div>
+        <% } %>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
