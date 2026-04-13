@@ -46,25 +46,13 @@
 
             <div class="article-grid">
                 <!-- Article -->
-                <a href="/takes/article-slug" class="article-card">
-                    <div class="article-card-image"></div>
-                    <span class="article-card-author">AUTHOR NAME</span>
-                    <h3 class="article-card-title">Article title goes here</h3>
-                </a>
-
-                <!-- Article -->
-                <a href="/takes/article-slug" class="article-card">
-                    <div class="article-card-image"></div>
-                    <span class="article-card-author">AUTHOR NAME</span>
-                    <h3 class="article-card-title">Article title goes here</h3>
-                </a>
-
-                <!-- Article -->
-                <a href="/takes/article-slug" class="article-card">
-                    <div class="article-card-image"></div>
-                    <span class="article-card-author">AUTHOR NAME</span>
-                    <h3 class="article-card-title">Article title goes here</h3>
-                </a>
+                <% article.forEach(article => { %>
+                    <a href="/takes/<%= article.slug %>" class="article-card">
+                        <div class="article-card-image"></div>
+                        <span class="article-card-author"> <%= article.authorName %></span>
+                        <h3 class="article-card-title"><%= article.title %></h3>
+                    </a>
+                <% })  %>
             </div>
 
         </div>

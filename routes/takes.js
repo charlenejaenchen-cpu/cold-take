@@ -9,8 +9,9 @@ const router = express.Router();
 // --- ROUTES ---
 
 // GET Takes Index
-router.get('/', (req, res) => {
-    res.render('takes');
+router.get('/', async (req, res) => {
+    const article = await Article.find().sort({ publishedAt: -1});
+    res.render('takes', { article });
 });
 
 // POST Take Publish 
