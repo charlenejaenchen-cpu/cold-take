@@ -1,0 +1,75 @@
+<%- include('partials/head') %>
+
+<%- include('partials/navbar') %>
+
+<main>
+    
+    <!-- Takes Section -->
+    <section class="takes">
+        <h1 class="page-title">takes.</h1>
+
+         <!-- Article Index -->
+        <div class="article-index">
+           
+            <!-- Selection Bar -->
+            <div class="controls-wrapper">
+                <h2 class="subtitle">selected opninions</h2>
+
+                <!-- Article Display Controls -->
+                <div class="controls">
+                    <!-- Filter Dropdown -->
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" id="filter-btn">filter</button>
+                        <div class="dropdown-menu hidden" id="filter-menu">
+                            <button class="pill active" data-filter="all">all</button>
+                            <button class="pill" data-filter="style">style</button>
+                            <button class="pill" data-filter="industry">industry</button>
+                            <button class="pill" data-filter="culture">culture</button>
+                            <button class="pill" data-filter="trends">trends</button>
+                        </div>
+                    </div>
+
+                    <!-- Sort Dropdown -->
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" id="sort-btn">sort</button>
+                        <div class="dropdown-menu hidden" id="sort-menu">
+                            <button class="sort-option" data-sort="newest">Newest</button>
+                            <button class="sort-option" data-sort="oldest">Oldest</button>
+                            <button class="sort-option" data-sort="most-viewed">Most viewed</button>
+                        </div>
+                    </div>
+
+                    <!-- Search Option -->
+                    <input type="search" placeholder="Search..." id="search-input">
+                </div>
+            </div>
+
+            <div class="article-grid">
+                <!-- Article -->
+                <a href="/takes/article-slug" class="article-card">
+                    <div class="article-card-image"></div>
+                    <span class="article-card-author">AUTHOR NAME</span>
+                    <h3 class="article-card-title">Article title goes here</h3>
+                </a>
+
+                <!-- Article -->
+                <a href="/takes/article-slug" class="article-card">
+                    <div class="article-card-image"></div>
+                    <span class="article-card-author">AUTHOR NAME</span>
+                    <h3 class="article-card-title">Article title goes here</h3>
+                </a>
+
+                <!-- Article -->
+                <a href="/takes/article-slug" class="article-card">
+                    <div class="article-card-image"></div>
+                    <span class="article-card-author">AUTHOR NAME</span>
+                    <h3 class="article-card-title">Article title goes here</h3>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+</main>
+
+<%- include('partials/footer') %>

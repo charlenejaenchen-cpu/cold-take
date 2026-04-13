@@ -5,7 +5,10 @@ import express from 'express';
 import connectDB from './config/db.js';
 import dotenv from 'dotenv';
 import path from 'path';
+
+// Import Router
 import indexRouter from './routes/index.js';
+import takesRouter from './routes/takes.js';
 
 // __dirname in ESM
 import { fileURLToPath } from 'url';
@@ -35,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // --- ROUTES ---
 app.use('/', indexRouter);
+app.use('/takes', takesRouter);
 
 
 // --- SERVER CONNECTION ---
