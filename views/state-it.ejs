@@ -1,0 +1,89 @@
+<%- include('partials/head') %>
+
+    <%- include('partials/navbar') %>
+
+        <main>
+            <!-- STATE IT SECTION -->
+            <section class="publish-section">
+                <h1 class="page-title">state it.</h1>
+
+                <!-- Take Publish -->
+                <div class="form-wrapper">
+
+                    <!-- Left Panel -->
+                    <div class="form-panel form-panel--red">
+                        <div class="form-panel-content">
+                            <div class="form-panel-content--text-wrapper">
+                                <p class="panel-label">What</p>
+                                <p class="panel-text">Share your opinion with others and upload a cold take.</p>
+                            </div>
+                            <div class="form-panel-content--text-wrapper">
+                                <p class="panel-label">How</p>
+                                <p class="panel-text">Fill out the Information fields, verify your Email address and publish your cold take.</p>
+                            </div>
+                        </div>
+                        <h2 class="panel-title">publish.</h2>
+                    </div>
+
+                    <!-- Right Panel: Publish Form -->
+                    <form class="form-content" action="/takes/state-it" method="POST">
+                        <div class="form-row">
+                            <div class="form-input-wrapper">
+                                <label for="authorName">Author</label>
+                                <input type="text" id="authorName" name="authorName" placeholder="Your full name*"
+                                    required>
+                            </div>
+                            <div class="form-input-wrapper">
+                                <label for="socials">Socials</label>
+                                <input type="text" id="socials" name="socials" placeholder="App: name; App: ...">
+                            </div>
+                        </div>
+                        <div class="form-input-wrapper">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" name="title" placeholder="Your article title*" required>
+                        </div>
+                        <div class="form-input-wrapper">
+                            <label for="body">Article</label>
+                            <textarea id="body" name="body" placeholder="Copy your article in here*"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Publish</button>
+                    </form>
+
+                </div>
+
+
+                <!-- Take edit -->
+                <div class="form-wrapper">
+
+                    <!-- Left Panel -->
+                    <div class="form-panel form-panel--black">
+                        <h2 class="panel-title">edit.</h2>
+                         <div class="form-panel-content">
+                            <div class="form-panel-content--text-wrapper">
+                                <p class="panel-label">What</p>
+                                <p class="panel-text">Share your opinion with others and upload a cold take.</p>
+                            </div>
+                            <div class="form-panel-content--text-wrapper">
+                                <p class="panel-label">How</p>
+                                <p class="panel-text">Fill out the Information fields, verify your Email address and publish your cold take.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel: Edit Code Form -->
+                    <form class="form-content" action="/takes/edit/verify" method="POST">
+                        <div class="form-input-wrapper">
+                            <label for="editCode">Access Code</label>
+                            <input type="text" id="editCode" name="editCode" placeholder="Your personal article code">
+                        </div>
+                        <button type="submit" class="btn-primary">Check</button>
+                    </form>
+
+
+                </div>
+            </section>
+
+        </main>
+
+        <%- include('partials/footer') %>
