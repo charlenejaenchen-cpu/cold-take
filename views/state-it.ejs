@@ -2,26 +2,12 @@
 
     <%- include('partials/navbar') %>
 
-        <% if (typeof state !== 'undefined' && state === 'success') { %>
-
-        <main>
-            <section class="success-section">
-            <h1>your take has been published.</h1>
-            <p>Save this code — you need it to edit or delete your article:</p>
-            <p class="edit-code"><%= editCode %></p>
-            <a href="/takes/<%= article.slug %>">View your article</a>
-            </section>
-        </main>
-
-
-        <% } else { %>
-
         <main>
             <!-- STATE IT SECTION -->
             <section class="publish-section">
                 <h1 class="page-title">state it.</h1>
 
-                <!-- Take Publish -->
+                <!-- TAKE PUBLISH -->
                 <div class="form-wrapper">
 
                     <!-- Left Panel -->
@@ -39,35 +25,73 @@
                         <h2 class="panel-title">publish.</h2>
                     </div>
 
-                    <!-- Right Panel: Publish Form -->
-                    <form class="form-content" action="/takes/state-it" method="POST">
-                        <div class="form-row">
-                            <div class="form-input-wrapper">
-                                <label for="authorName">Author</label>
-                                <input type="text" id="authorName" name="authorName" placeholder="Your full name*"
-                                    required>
+                    <!-- Right Panel: Publish Form States-->
+                    <% if (typeof publishState !== 'undefined' && publishState === 'form') { %>
+                        <!-- Default: Form -->
+                        <form class="form-content" action="/takes/state-it" method="POST">
+                            <div class="form-row">
+                                <div class="form-input-wrapper">
+                                    <label for="authorName">Author</label>
+                                    <input type="text" id="authorName" name="authorName" placeholder="Your full name*"
+                                        required>
+                                </div>
+                                <div class="form-input-wrapper">
+                                    <label for="socials">Socials</label>
+                                    <input type="text" id="socials" name="socials" placeholder="App: name; App: ...">
+                                </div>
                             </div>
                             <div class="form-input-wrapper">
-                                <label for="socials">Socials</label>
-                                <input type="text" id="socials" name="socials" placeholder="App: name; App: ...">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" name="title" placeholder="Your article title*" required>
                             </div>
-                        </div>
-                        <div class="form-input-wrapper">
-                            <label for="title">Title</label>
-                            <input type="text" id="title" name="title" placeholder="Your article title*" required>
-                        </div>
-                        <div class="form-input-wrapper">
-                            <label for="body">Article</label>
-                            <textarea id="body" name="body" placeholder="Copy your article in here*"
-                                required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Publish</button>
-                    </form>
+                            <div class="form-input-wrapper">
+                                <label for="body">Article</label>
+                                <textarea id="body" name="body" placeholder="Copy your article in here*"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Publish</button>
+                        </form>
+                    
+                    <!-- Error -->
+                    <% } else if (publishState === 'error') { %>
+                        <form class="form-content" action="/takes/state-it" method="POST">
+                            <div class="form-row">
+                                <div class="form-input-wrapper">
+                                    <label for="authorName" style="color: red;">Author required</label>
+                                    <input type="text" id="authorName" name="authorName" placeholder="Your full name*"
+                                        required>
+                                </div>
+                                <div class="form-input-wrapper">
+                                    <label for="socials">Socials</label>
+                                    <input type="text" id="socials" name="socials" placeholder="App: name; App: ...">
+                                </div>
+                            </div>
+                            <div class="form-input-wrapper">
+                                <label for="title" style="color: red;">Title required</label>
+                                <input type="text" id="title" name="title" placeholder="Your article title*" required>
+                            </div>
+                            <div class="form-input-wrapper">
+                                <label for="body" style="color: red;">Article required</label>
+                                <textarea id="body" name="body" placeholder="Copy your article in here*"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Publish</button>
+                        </form>
 
+                    <!-- Success -->
+                    <% } else if (publishState === 'success') { %>
+                        <div class="form-content">
+                            <p>Your Take has been successfully published.</p>
+                            <p>Code:</p>
+                            <p><strong><%= editCode %></strong></p>
+                            <p>(important! keep this code somewhere, you will need it to edit or delete a Take safe)</p>
+                            <a href="/takes/<%= article.slug %>">View Your Take!</a>
+                        </div>
+                    <% } %>
                 </div>
 
 
-                <!-- Take edit -->
+                <!-- TAKE EDIT -->
                 <div class="form-wrapper">
 
                     <!-- Left Panel -->
@@ -85,22 +109,81 @@
                         </div>
                     </div>
 
-                    <!-- Right Panel: Edit Code Form -->
-                    <form class="form-content" action="/takes/edit/verify" method="POST">
-                        <div class="form-input-wrapper">
-                            <label for="editCode">Access Code</label>
-                            <input type="text" id="editCode" name="editCode" placeholder="Your personal article code">
+                    <!-- Right Panel: Edit Form States -->
+                    <!-- Access Code -->
+                    <% if (typeof editState === 'undefined' || editState === 'code') { %>
+                        <form class="form-content" action="/takes/edit/verify" method="POST">
+                            <div class="form-input-wrapper">
+                                <label for="editCode">Access Code</label>
+                                <input type="text" id="editCode" name="editCode" placeholder="Your personal article code">
+                            </div>
+                            <button type="submit" class="btn-primary">Check</button>
+                        </form>
+                    
+                    <!-- Code Error -->
+                    <% } else if (editState === 'code-error') { %>
+                        <form class="form-content" action="/takes/edit/verify" method="POST">
+                            <div class="form-input-wrapper">
+                                <label for="editCode" style="color: red;">Wrong code. Try again.</label>
+                                <input type="text" id="editCode" name="editCode" placeholder="Your personal article code">
+                            </div>
+                            <button type="submit" class="btn-primary">Check</button>
+                        </form>
+                    
+                    <!-- Choice -->
+                    <% } else if (editState === 'choice') { %>
+                        <div class="form-content">
+                            <p>Do you want to edit or delete your take?</p>
+                            <form action="/takes/edit/<%= article._id %>" method="POST">
+                                <button type="submit" name="action" value="edit" class="btn-primary">Edit</button>
+                                <button type="submit" name="action" value="delete" class="btn-primary">Delete</button>
+                            </form>
                         </div>
-                        <button type="submit" class="btn-primary">Check</button>
-                    </form>
 
+                     <!-- form -->
+                    <% } else if (editState === 'form') { %>
+                        <form class="form-content" action="/takes/edit/<%= article._id %>/update" method="POST">
+                            <div class="form-input-wrapper">
+                                <label>Title</label>
+                                <input type="text" name="title" value="<%= article.title %>" required>
+                            </div>
+                            <div class="form-input-wrapper">
+                                <label>Article</label>
+                                <textarea name="body" required><%= article.body %></textarea>
+                            </div>
+                            <div class="form-input-wrapper">
+                                <label>Socials</label>
+                                <input type="text" name="socials" value="<%= article.socials %>">
+                            </div>
+                            <button type="submit" name="action" value="edit" class="btn-primary">Publish</button>
+                        </form>
 
+                    <!-- Success -->
+                    <% } else if (editState === 'edit-success') { %>
+                        <div class="form-content">
+                            <p>Your Take has been successfully updated!</p>
+                        </div>
+
+                    <!-- Right Panel: Delete Form States -->
+                    <!-- Confirmation -->
+                    <% } else if (editState === 'delete-confirm') { %>
+                        <div class="form-content">
+                            <p>Are you sure you want to delete this Take?</p>
+                            <form action="/takes/delete/<%= article._id %>" method="POST">
+                                <button type="button" class="btn-primary" onclick="history.back()">Back</button>
+                                <button type="submit" class="btn-primary">Delete</button>
+                            </form>
+                        </div>
+                        
+                    <!-- Success -->
+                    <% } else if (editState === 'delete-success') { %>
+                        <div class="form-content">
+                            <p>Your Take has been successfully deleted!</p>
+                        </div>
+                    <% } %>
                 </div>
             </section>
 
         </main>
-
-        <% } %>
-
         
         <%- include('partials/footer') %>
