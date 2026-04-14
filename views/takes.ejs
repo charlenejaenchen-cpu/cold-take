@@ -17,7 +17,8 @@
 
                 <!-- Article Display Controls -->
                 <div class="controls">
-                    <!-- Filter Dropdown -->
+                    <!-- Filter & Sort Dropdown -->
+                    <!-- Filter temporarily disabled (tags in form are missing: future feat. add)
                     <div class="dropdown">
                         <button class="dropdown-toggle" id="filter-btn">filter</button>
                         <div class="dropdown-menu hidden" id="filter-menu">
@@ -28,6 +29,7 @@
                             <button class="pill" data-filter="trends">trends</button>
                         </div>
                     </div>
+                    -->
 
                     <!-- Sort Dropdown -->
                     <div class="dropdown">
@@ -47,12 +49,15 @@
             <div class="article-grid">
                 <!-- Article Card-->
                 <% article.forEach(article => { %>
-                    <a href="/takes/<%= article.slug %>" class="article-card">
+                    <a href="/takes/<%= article.slug %>" 
+                        class="article-card" 
+                        data-publishedat="<%= article.publishedAt %>" 
+                        data-viewcount="<%= article.viewCount %>">
                         <div class="article-card-image"></div>
                         <span class="article-card-author"> <%= article.authorName %></span>
                         <h3 class="article-card-title"><%= article.title %></h3>
                     </a>
-                <% })  %>
+                <% }) %>
             </div>
 
         </div>
