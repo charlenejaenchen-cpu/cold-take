@@ -42,22 +42,28 @@
                     </div>
 
                     <!-- Search Option -->
-                    <!-- Filter temporarily disabled (tags in form are missing: future feat. add)
+                    <!-- Filter temporarily disabled (tags in form are missing: future feat. add) 
                     <input type="search" placeholder="Search..." id="search-input">
                     -->
-                </div>
+                </div> 
             </div>
 
             <div class="article-grid">
                 <!-- Article Card-->
                 <% article.forEach(article => { %>
                     <a href="/takes/<%= article.slug %>" 
-                        class="article-card" 
+                        class="article-card grid-article-card" 
                         data-publishedat="<%= article.publishedAt %>" 
                         data-viewcount="<%= article.viewCount %>">
-                        <div class="article-card-image"></div>
-                        <span class="article-card-author"> <%= article.authorName %></span>
-                        <h3 class="article-card-title"><%= article.title %></h3>
+                        <div class="article-card-image">
+                            <% if (article.coverImageUrl) { %>
+                                <img src="<%= article.coverImageUrl %>" alt="<%= article.title %>">
+                            <% } %>
+                        </div>
+                        <div class="article-card-info">
+                            <span class="article-card-info-author"> <%= article.authorName %></span>
+                            <h3 class="article-card-info-title"><%= article.title %></h3>
+                        </div>
                     </a>
                 <% }) %>
             </div>

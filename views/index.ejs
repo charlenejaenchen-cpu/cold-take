@@ -6,7 +6,7 @@
 
             <!-- HERO SECTION -->
             <section class="hero">
-                <h1 class="hero-title">because<br>what is fashion<br>without you</h1>
+                <h1 class="hero-title">because<br>fashion is truly<br>about you</h1>
             </section>
 
 
@@ -19,14 +19,14 @@
                         <img src="" alt="">
                     </div>
 
-                    <div class="info-textbox">
+                    <div class="info-textbox info-textbox--black">
                         <p>Hier kommt ein text der erklärt warum es diese Website gibt.</p>
                     </div>
                 </div>
 
-                <!-- first content wrapper -->
+                <!-- second content wrapper -->
                 <div class="info-row">
-                    <div class="info-textbox">
+                    <div class="info-textbox info-textbox--red">
                         <p>Hier kommt ein text der erklärt warum es diese Website gibt.</p>
                     </div>
 
@@ -46,10 +46,16 @@
                     <div class="slider-track">
                         <!-- Article Card-->
                         <% article.forEach(article => { %>
-                            <a href="/takes/<%= article.slug %>" class="article-card">
-                                <div class="article-card-image"></div>
-                                <span class="article-card-author"> <%= article.authorName %></span>
-                                <h3 class="article-card-title"><%= article.title %></h3>
+                            <a href="/takes/<%= article.slug %>" class="article-card slider-article-card">
+                                <div class="article-card-image">
+                                    <% if (article.coverImageUrl) { %>
+                                        <img src="<%= article.coverImageUrl %>" alt="<%= article.title %>">
+                                    <% } %>
+                                </div>
+                                <div class="article-card-info">
+                                    <span class="article-card-info-author"> <%= article.authorName %></span>
+                                    <h3 class="article-card-info-title"><%= article.title %></h3>
+                                </div>
                             </a>
                         <% })  %>
                     </div>
