@@ -45,7 +45,7 @@ ol {
 
 input,
 textarea {
-  border: none;
+    border: none;
 }
 
 
@@ -116,11 +116,11 @@ main {
     color: var(--color-black);
     text-align: left;
     line-height: 100%;
-   }
+}
 
 p {
     font-family: 'Montserrat';
-   }
+}
 
 
 /* ==================
@@ -137,12 +137,6 @@ p {
     font-family: 'Montserrat';
     font-size: 2.0rem;
     font-weight: 600;
-}
-
-.nav-link-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 2.0rem;
 }
 
 .nav-logo {
@@ -210,7 +204,7 @@ p {
     font-family: 'Montserrat';
     font-size: 2.0rem;
     font-weight: 300;
-    line-height: 100%; 
+    line-height: 100%;
 }
 
 .form-row {
@@ -235,7 +229,7 @@ p {
     font-family: 'Montserrat';
     font-size: 2.0rem;
     font-weight: 300;
-    line-height: 100%; 
+    line-height: 100%;
 }
 
 .form-input {
@@ -267,7 +261,7 @@ p {
     display: flex;
     justify-content: center;
     gap: 2.0rem;
-} 
+}
 
 
 /* ==================
@@ -300,7 +294,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    align-self: stretch;
+    align-self: 100%;
 }
 
 .info-row {
@@ -361,10 +355,15 @@ p {
     padding: 3rem 0 3rem 0.85rem;
     overflow-x: auto;
     overflow-y: visible;
-    scrollbar-width: none; /* Firefox */        /* AI help*/
+    scrollbar-width: none;
+    /* Firefox */
+    /* AI help*/
 }
+
 .slider::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */         /* AI help*/
+    display: none;
+    /* Chrome, Safari */
+    /* AI help*/
 }
 
 .slider-track {
@@ -418,8 +417,8 @@ p {
 }
 
 .article-card:hover .article-card-info {
-  color: var(--color-white);
-  background-color: var(--color-black);
+    color: var(--color-white);
+    background-color: var(--color-black);
 }
 
 .article-card-info-author {
@@ -436,7 +435,7 @@ p {
     font-size: 2.0rem;
     font-weight: 500;
     overflow-wrap: break-word;
-    word-break: break-word; 
+    word-break: break-word;
 }
 
 
@@ -486,7 +485,8 @@ p {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%);                    /* AI Help*/
+    transform: translateX(-50%);
+    /* AI Help*/
     background-color: var(--color-white);
     display: flex;
     flex-direction: column;
@@ -508,13 +508,13 @@ p {
 .article-grid {
     display: flex;
     align-items: flex-start;
-    gap: 3.0rem;
+    gap: 2.6rem;
     width: 100%;
     flex-wrap: wrap;
 }
 
 .grid-article-card {
-    width: calc(25% - 2.25rem);
+    width: calc(25% - 1.95rem);
     flex-shrink: 0;
 }
 
@@ -615,7 +615,7 @@ p {
 }
 
 .page-description {
-    width: 30%;
+    width: 32%;
     text-align: left;
     font-size: 2.0rem;
     font-weight: 500;
@@ -632,6 +632,8 @@ p {
 .form-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .form-panel {
@@ -674,7 +676,7 @@ p {
 .panel-label {
     font-size: 2.0rem;
     font-weight: 250;
-    line-height: 100%; 
+    line-height: 100%;
 }
 
 .panel-text {
@@ -707,12 +709,314 @@ p {
    MEDIA QUERIES
    ================== */
 
+/*
+On Desktop (font-size: 62.5%, 1rem = 10px)
+On Tablet (font-size: 50%, 1rem = 8px)
+On Phone (font-size: 40%, 1rem = 6.4px)
+*/
+
+
 @media (max-width: 992px) {
     html {
-        font-size: 40%;
+        font-size: 50%;
+    }
+
+    /* NAVBAR */
+    nav {
+        padding: 0 20px;
+    }
+
+    /* TYPOGRAPHY */
+    .hero-title {
+        font-size: 100px;
+    }
+
+    .page-title {
+        font-size: 100px;
+    }
+
+    .article-title {
+        font-size: 80px;
+    }
+
+    /* HERO */
+    .hero {
+        height: calc(100vh - var(--navbar-height));
+    }
+
+    /* INFO SECTION */
+    .info-textbox {
+        font-size: 16px;
+    }
+
+    /* ARTICLE CARDS */
+    .article-card-info-author {
+        font-size: 12px;
+    }
+
+    .article-card-info-title {
+        font-size: 20px;
+    }
+
+    .slider-article-card {
+        height: 500px;
+    }
+
+    /* ARTICLE GRID */
+    .grid-article-card {
+        width: calc(50% - 1.3rem);
+    }
+
+    /* STATE IT */
+    .page-description {
+        width: 40%;
+    }
+    
+    .subsection-forms {
+        gap: 200px;
+    }
+
+    .form-wrapper {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form-panel {
+        width: 100%;
+        padding: 60px;
+    }
+
+    .panel-title {
+        font-size: 90px;
+    }
+
+    .form-panel-content {
+        gap: 50px;
+    }
+
+    .form-panel-content--text-wrapper {
+        gap: 20px;
+    }
+
+    .panel-label {
+        font-size: 20px;
+    }
+
+    .panel-text {
+        font-size: 30px;
+    }
+
+    .form-content {
+        width: 100%;
+        aspect-ratio: auto;
+        padding: 60px;
+        gap: 50px;
+    }
+
+    .form-label {
+        font-size: 20px;
+    }
+
+    .form-input-wrapper,
+    .form-input-wrapper--half {
+        gap: 20px;
+    }
+
+    .form-input {
+        font-size: 16px;
+        padding: 16px;
+    }
+
+    .form-textarea {
+        font-size: 16px;
+        padding: 16px;
+    }
+
+    .form-button {
+        font-size: 20px;
     }
 }
 
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
+    html {
+        font-size: 40%;
+    }
+
+    /* NAVBAR */
+    nav {
+        padding: 0 16px;
+    }
+
+    .nav-logo {
+        font-size: 40px;
+    }
+
+    .nav-link {
+        font-size: 17px;
+    }
+
+    /* TYPOGRAPHY */
+    .page-title {
+        font-size: 60px;
+        width: 50%;
+    }
+
+    .article-title {
+        font-size: 80px;
+    }
+
+
+    /* HERO SECTION */
+    .hero {
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - var(--navbar-height));
+    }
+    
+    .hero-title {
+        font-size: 60px;
+        text-align: center;
+    }
+
+
+    /* INFO SECTION */
+    .info-row {
+        flex-direction: column;
+    }
+
+    .info-image,
+    .info-textbox {
+        width: 100%;
+    }
+
+    .info-textbox {
+        font-size: 17px;
+    }
+
+    /* ARTICLE CARDS */
+    .article-card-info-author {
+        font-size: 12px;
+    }
+
+    .article-card-info-title {
+        font-size: 18px
+    }
+
+    .slider-article-card {
+        height: 420px;
+    }
+
+    /* TAKES */
+    .dropdown-toggle {
+        font-size: 26px;
+    }
+    
+    .article-grid {
+        gap: 30px;
+    }
+    
+    .grid-article-card {
+        width: 100%;
+    }
+
+    /* ARTICLE VIEW */
+    .article {
+        padding: calc(var(--navbar-height) + 50px) 30px 180px 30px;
+        gap: 120px;
+    }
+    
+    .article-header {
+        flex-direction: column;
+    }
+
+    .article-title {
+        font-size: 60px;
+    }
+
+    .article-info-wrapper {
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .article-content-wrapper {
+        gap: 120px;
+    }
+
+    .subtitle {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .article-text {
+        font-size: 24px;
+    }
+
+    .author-socials {
+        font-size: 17px;
+        text-align: center;
+
+    }
+
+    /* STATE IT */
+    .page-description {
+        font-size: 9.5px;
+    }
+
+    .form-panel {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .panel-title {
+        font-size: 50px;
+    }
+
+    .form-panel-content {
+        gap: 30px;
+    }
+
+    .form-panel-content--text-wrapper {
+        gap: 10px;
+    }
+
+    .panel-label {
+        font-size: 18px;
+    }
+
+    .panel-text {
+        font-size: 20px;
+    }
+
+    .form-content {
+        width: 100%;
+        aspect-ratio: auto;
+        padding: 30px 10px;
+        gap: 20px;
+    }
+
+    .form-label {
+        font-size: 18px;
+    }
+
+    .form-input-wrapper,
+    .form-input-wrapper--half {
+        gap: 10px;
+    }
+
+    .form-input {
+        font-size: 16px;
+        padding: 16px;
+    }
+
+    .form-textarea {
+        font-size: 16px;
+        padding: 16px;
+    }
+
+    .form-button {
+        font-size: 18px;
+    }
 }
+
