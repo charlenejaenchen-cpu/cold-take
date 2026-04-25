@@ -13,7 +13,7 @@
            
             <!-- Selection Bar -->
             <div class="controls-wrapper">
-                <h2 class="subtitle">selected opninions</h2>
+                <h2 class="takes-subtitle">selected opninions</h2>
 
                 <!-- Article Display Controls -->
                 <div class="controls">
@@ -37,7 +37,7 @@
                         <div class="dropdown-menu hidden" id="sort-menu">
                             <button class="sort-option" data-sort="newest">Newest</button>
                             <button class="sort-option" data-sort="oldest">Oldest</button>
-                            <button class="sort-option" data-sort="most-viewed">Most viewed</button>
+                            <button class="sort-option" data-sort="most-viewed">Most<br>viewed</button>
                         </div>
                     </div>
 
@@ -58,6 +58,8 @@
                         <div class="article-card-image">
                             <% if (article.coverImageUrl) { %>
                                 <img src="<%= article.coverImageUrl %>" alt="<%= article.title %>">
+                            <% } else { %>
+                                <img src="/images/ximage_opinionarticle_smokingaccessory.png" alt="No cover image">
                             <% } %>
                         </div>
                         <div class="article-card-info">

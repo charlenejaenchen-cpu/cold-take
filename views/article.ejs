@@ -5,26 +5,29 @@
         <main>
             <section class="article">
                 <header class="article-header">
-                    <div class="article-card-image">
-                        <% if (article.coverImageUrl) { %>
-                            <img src="<%= article.coverImageUrl %>" alt="<%= article.title %>">
+                    <div class="article-theme">
+                        <div class="article-image">
+                            <% if (article.coverImageUrl) { %>
+                                <img src="<%= article.coverImageUrl %>" alt="<%= article.title %>">
+                            <% } else { %>
+                                <img src="/images/ximage_opinionarticle_smokingaccessory.png" alt="Young man exhaling cigarette smoke, wearing a black turtleneck">
                             <% } %>
+                        </div>
+                        <h1 class="article-title">
+                            <%= article.title %>
+                        </h1>
                     </div>
-                    <h1 class="article-title">
-                        <%= article.title %>
-                    </h1>
-                </header>
-
-                <div class="article-content-wrapper">
                     <div class="article-info-wrapper">
                         <span class="subtitle">
                             <%= article.authorName %>
                         </span>
-                        <span class="subtitle">
+                        <span class="article-subtitle">
                             <%= article.publishedAt.toDateString() %>
                         </span>
                     </div>
+                </header>
 
+                <div class="article-text-wrapper">
                     <p class="article-text"><%- article.body %></p>
                 </div>
 
