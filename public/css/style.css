@@ -82,7 +82,7 @@ html {
 
 
 body {
-    min-height: 100dvh;
+    min-height: 100lvh;
     width: 100%;
     font-family: 'Montserrat';
     font-size: 1.6rem;
@@ -296,7 +296,7 @@ p {
 .hero {
     display: flex;
     flex-direction: column;
-    height: 100dvh;
+    height: 100lvh;
     width: 100%;
     padding: 5.0rem;
     justify-content: flex-end;
@@ -590,7 +590,7 @@ p {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    height: 100dvh;
+    height: 100lvh;
     padding: calc(var(--navbar-height) + 10.0rem) 5.0rem 10.0rem 5.0rem;
 }
 
@@ -807,7 +807,7 @@ p {
 
     /* HERO */
     .hero {
-        height: 100dvh;
+        height: 100lvh;
     }
 
     /* INFO SECTION */
@@ -990,7 +990,7 @@ p {
     .hero {
         justify-content: center;
         align-items: center;
-        height: 100dvh;
+        height: 100lvh;
         padding: 0 2 0rem;
     }
 
@@ -1075,7 +1075,7 @@ p {
     }
 
     .article-header {
-        height: 100dvh;
+        height: 100lvh;
         padding: calc(var(--navbar-height) + 4.0rem) 2.0rem 4.0rem 2.0rem;
         justify-content: space-between;
         gap: 4.0rem;
