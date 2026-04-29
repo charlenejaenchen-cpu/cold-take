@@ -406,6 +406,8 @@ p {
     align-items: flex-start;
     width: 34.0rem;
     flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
 }
 
 .slider-article-card {
@@ -807,7 +809,7 @@ p {
 
     /* HERO */
     .hero {
-        height: 100lvh;
+        height: calc(100lvh - var(--navbar-height));
     }
 
     /* INFO SECTION */
@@ -990,7 +992,6 @@ p {
     .hero {
         justify-content: center;
         align-items: center;
-        height: 100lvh;
         padding: 0 2 0rem;
     }
 
@@ -1071,11 +1072,11 @@ p {
     /* ARTICLE VIEW */
     .article {
         padding: 0 0 6.0rem 0;
-        gap: 0rem;
+        gap: 4.0rem;
     }
 
     .article-header {
-        height: 100lvh;
+        height: calc(100lvh - var(--navbar-height));
         padding: calc(var(--navbar-height) + 4.0rem) 2.0rem 4.0rem 2.0rem;
         justify-content: space-between;
         gap: 4.0rem;
