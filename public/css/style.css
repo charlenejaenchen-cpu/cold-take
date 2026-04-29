@@ -121,7 +121,7 @@ main {
 .page-title {
     padding-left: 5.0rem;
     font-family: 'Afacad';
-    font-size: clamp(4.8rem, 10vw, 15rem);
+    font-size: clamp(5.0rem, 10vw, 15rem);
     font-weight: 600;
     color: var(--color-black);
     text-align: left;
@@ -249,7 +249,7 @@ p {
 
 .form-input {
     display: flex;
-    padding: 1.6rem;
+    padding: 2.2rem 1.6rem;
     align-items: flex-start;
     width: 100%;
     min-height: 48px;
@@ -266,7 +266,7 @@ p {
 
 .form-textarea {
     display: flex;
-    padding: 1.6rem;
+    padding: 2.2rem 1.6rem;
     align-items: flex-start;
     width: 100%;
     height: 12.0rem;
@@ -284,7 +284,7 @@ p {
 .button-choice-wrapper {
     display: flex;
     justify-content: center;
-    gap: 2.0rem;
+    gap: 1.6rem;
 }
 
 
@@ -355,7 +355,7 @@ p {
 }
 
 .info-text {
-    width:100%;
+    width: 100%;
     font-family: 'Montserrat';
     font-size: clamp(1.6rem, 2.2vw, 2.6rem);
     font-weight: 500;
@@ -450,8 +450,8 @@ p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 1.6rem 1.2rem;
-    gap: 1.2rem;
+    padding: 1.6rem 1.0rem;
+    gap: 0.8rem;
     justify-content: center;
     color: var(--color-black);
 }
@@ -472,8 +472,9 @@ p {
 .article-card-info-title {
     text-align: left;
     font-family: 'Montserrat';
-    font-size: clamp(1.6rem, 1.8vw, 2rem);
+    font-size: clamp(1.8rem, 1.9vw, 2.0rem);
     font-weight: 500;
+    line-height: 1.2;
     overflow-wrap: break-word;
     word-break: break-word;
 }
@@ -508,14 +509,11 @@ p {
     align-items: center;
     width: 100%;
     font-family: 'Afacad';
-    font-size: clamp(2.4rem, 3.5vw, 4rem);
+    font-size: clamp(3.0rem, 3.5vw, 4rem);
     font-weight: 500;
 }
 
 .takes-subtitle {
-    font-family: 'Afacad';
-    font-size: clamp(2.2rem, 3vw, 4rem);
-    font-weight: 500;
     line-height: 1;
 }
 
@@ -543,12 +541,13 @@ p {
     flex-direction: column;
     padding: 2.0rem;
     z-index: 10;
-    background-color: var(--color-white);
+    background-color: var(--color-black);
 }
 
 .sort-option {
     font-family: 'Montserrat';
-    font-size: 1.6rem;
+    color: var(--color-white);
+    font-size: clamp(1.6rem, 1.8vw, 2.0rem);
     cursor: pointer;
     min-height: 48px;
     display: flex;
@@ -815,7 +814,7 @@ p {
     .info-row {
         flex-direction: column;
     }
-    
+
     .info-textbox {
         font-size: 1.6rem;
         padding: 6.0rem;
@@ -839,15 +838,15 @@ p {
     }
 
     /* ARTICLE CARDS - disable hover on touch*/
-    .popular-takes { 
-        padding: 10.0rem 0 10.0rem 0; 
+    .popular-takes {
+        padding: 10.0rem 0 6.0rem 0;
         gap: 6.0rem;
     }
 
     .slider {
         padding: 0;
     }
-    
+
     .slider-article-card {
         height: auto;
         width: 40%;
@@ -872,11 +871,11 @@ p {
     }
 
     /* TAKES - 2 column grid on tablet */
-    .takes { 
+    .takes {
         padding: calc(var(--navbar-height) + 10.0rem) 0 10.0rem 0;
         gap: 6.0rem
     }
-    
+
     .article-index {
         padding: 0 4.0rem;
         gap: 4.0rem;
@@ -987,7 +986,7 @@ p {
         justify-content: center;
         align-items: center;
         height: 100svh;
-        padding: 0 2, 0rem;
+        padding: 0 2 0rem;
     }
 
     .hero-title {
@@ -1035,11 +1034,11 @@ p {
     }
 
     /* TAKES - 1 column on mobile */
-    .takes { 
-        padding: calc(var(--navbar-height) + 6.0rem) 0; 
+    .takes {
+        padding: calc(var(--navbar-height) + 6.0rem) 0 6.0rem 0;
         gap: 4.0rem;
     }
-    
+
     .article-index {
         padding: 0 2.0rem;
         gap: 2.0rem;
@@ -1047,7 +1046,14 @@ p {
 
     .dropdown-toggle {
         color: var(--color-black);
-        text-decoration: underline;
+    }
+
+    .dropdown-menu {
+        top: 0;
+        right: 100%;
+        left: auto;
+        transform: none;
+        margin-right: 1rem;
     }
 
     .article-grid {
@@ -1063,7 +1069,7 @@ p {
         padding: 0 0 6.0rem 0;
         gap: 0rem;
     }
-    
+
     .article-header {
         height: 100svh;
         padding: calc(var(--navbar-height) + 4.0rem) 2.0rem 4.0rem 2.0rem;
