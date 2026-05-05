@@ -306,7 +306,7 @@ p {
 
 .hero-title {
     font-family: 'Afacad';
-    font-size: clamp(4.8rem, 10vw, 15.0rem);
+    font-size: clamp(5.0rem, 10vw, 15.0rem);
     font-weight: 600;
     color: var(--color-white);
     text-align: right;
@@ -528,6 +528,7 @@ p {
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: var(--color-black);
     text-decoration: underline;
     font-weight: 500;
 }
@@ -809,7 +810,7 @@ p {
 
     /* HERO */
     .hero {
-        height: calc(100lvh - var(--navbar-height));
+        height: 100lvh;
     }
 
     /* INFO SECTION */
@@ -992,7 +993,7 @@ p {
     .hero {
         justify-content: center;
         align-items: center;
-        padding: 0 2 0rem;
+        padding: 0 2.0rem 0 2.0rem;
     }
 
     .hero-title {
