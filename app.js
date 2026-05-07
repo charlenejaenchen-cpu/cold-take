@@ -2,27 +2,20 @@
 
 // Imports
 import express from 'express';
-import connectDB from './config/db.js';
-import dotenv from 'dotenv';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Import Router
 import indexRouter from './routes/index.js';
 import takesRouter from './routes/takes.js';
+import stateItRouter from './routes/stateIt.js';
 
 // __dirname in ESM
-import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// .env 
-dotenv.config();
 
-// Database Connection
-connectDB();
-
-// Server Connection
+// --- APP SETUP ---
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 
 // --- VIEW ENGINE ---
@@ -39,10 +32,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // --- ROUTES ---
 app.use('/', indexRouter);
 app.use('/takes', takesRouter);
+app.use('/state-it', stateItRouter)
 
 
-// --- SERVER CONNECTION ---
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// --- EXPORT ---
+export default app;
+
 

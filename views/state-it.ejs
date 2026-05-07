@@ -31,7 +31,7 @@
                         <!-- Right Panel: Publish Form States-->
                         <% if (typeof publishState !== 'undefined' && publishState === 'form') { %>
                             <!-- Default: Form -->
-                            <form class="form-content" action="/takes/state-it" method="POST">
+                            <form class="form-content" action="/state-it/state-it" method="POST">
                                 <div class="form-row">
                                     <div class="form-input-wrapper form-input-wrapper--half">
                                         <label class="form-label" for="authorName">Author</label>
@@ -57,7 +57,7 @@
                         
                         <!-- Error -->
                         <% } else if (publishState === 'error') { %>
-                            <form class="form-content" action="/takes/state-it" method="POST">
+                            <form class="form-content" action="/state-it/state-it" method="POST">
                                 <div class="form-row">
                                     <div class="form-input-wrapper form-input-wrapper--half">
                                         <label class="form-label" for="authorName" style="color: red;">Author required</label>
@@ -114,7 +114,7 @@
                         <!-- Right Panel: Edit Form States -->
                         <!-- Access Code -->
                         <% if (typeof editState === 'undefined' || editState === 'code') { %>
-                            <form class="form-content" action="/takes/edit/verify" method="POST">
+                            <form class="form-content" action="/state-it/edit/verify" method="POST">
                                 <div class="form-input-wrapper">
                                     <label class="form-label" for="editCode">Access Code</label>
                                     <input class="form-input" type="text" id="editCode" name="editCode" placeholder="Your personal article code">
@@ -124,7 +124,7 @@
                         
                         <!-- Code Error -->
                         <% } else if (editState === 'code-error') { %>
-                            <form class="form-content" action="/takes/edit/verify" method="POST">
+                            <form class="form-content" action="/state-it/edit/verify" method="POST">
                                 <div class="form-input-wrapper">
                                     <label class="form-label" for="editCode" style="color: red;">Wrong code. Try again.</label>
                                     <input class="form-input" type="text" id="editCode" name="editCode" placeholder="Your personal article code">
@@ -136,7 +136,7 @@
                         <% } else if (editState === 'choice') { %>
                             <div class="form-content form-content--just-text">
                                 <p>Do you want to edit or delete your take?</p>
-                                <form action="/takes/edit/<%= article._id %>" method="POST">
+                                <form action="/state-it/edit/<%= article._id %>" method="POST">
                                     <div class="button-choice-wrapper">
                                         <button class="form-button" type="submit" name="action" value="edit" class="btn-primary">Edit</button>
                                         <button class="form-button" type="submit" name="action" value="delete" class="btn-primary">Delete</button>
@@ -146,7 +146,7 @@
 
                         <!-- form -->
                         <% } else if (editState === 'form') { %>
-                            <form class="form-content" action="/takes/edit/<%= article._id %>/update" method="POST">
+                            <form class="form-content" action="/state-it/edit/<%= article._id %>/update" method="POST">
                                 <div class="form-input-wrapper">
                                     <label class="form-label">Title</label>
                                     <input class="form-input" type="text" maxlength="80" name="title" value="<%= article.title %>" required>
@@ -173,7 +173,7 @@
                         <% } else if (editState === 'delete-confirm') { %>
                             <div class="form-content form-content--just-text">
                                 <p>Are you sure you want to delete this Take?</p>
-                                <form action="/takes/delete/<%= article._id %>" method="POST">
+                                <form action="/state-it/delete/<%= article._id %>" method="POST">
                                     <div class="button-choice-wrapper">
                                         <button class="form-button" type="button" class="btn-primary" onclick="history.back()">Back</button>
                                         <button class="form-button form-button-deleteConfirm" type="submit" class="btn-primary">Delete</button>
